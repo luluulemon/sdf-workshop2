@@ -1,4 +1,4 @@
-package vtp2022.day2.workshop.workshop;
+package vtp2022.day2.workshop;
 //packge to generate UUID
 
 import java.util.UUID;
@@ -24,15 +24,8 @@ public class bankAccount {
     }
     
     public String getName() { return name; }
-    public void setName(String name) {this.name = name;    }
     public Boolean isClosed(){ return this.isClosed; }
-    public String getAcctId() {
-        return acctId;
-    }
-
-    public void setAcctId(String acctId) {
-        this.acctId = acctId;
-    }
+    public String getAcctId() { return acctId; }
 
     public float getBalance() {
         return balance;
@@ -54,7 +47,7 @@ public class bankAccount {
     public float withdraw(String withdrawAmt){
         Float withdrawAmtF = null;
         try{
-            withdrawAmtF = Float.parseFloat(withdrawAmt);
+            withdrawAmtF = Float.parseFloat(withdrawAmt);     // withdrawAmtF is alr a float? y use floatvalue
             if(withdrawAmtF.floatValue() <= 0){
                 throw new IllegalArgumentException("Amount cannot be negative or kosong!");
             }
@@ -78,7 +71,7 @@ public class bankAccount {
             System.err.print(e);
             throw new IllegalArgumentException("Invalid deposit amount");
         }
-        return 0f;
+        return this.balance;
     }
 
     public void deposit(String depositAmt){
